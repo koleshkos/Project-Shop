@@ -1,0 +1,412 @@
+Inspecting 41 files
+CCCCCCCCCCCCCCCCCC.
+
+Offenses:
+
+Gemfile:1:1: C: Style/FrozenStringLiteralComment: Missing frozen string literal comment.
+source 'https://rubygems.org'
+^
+Gemfile:32:81: C: Layout/LineLength: Line is too long. [83/80]
+  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+                                                                                ^^^
+Gemfile:33:28: C: Style/SymbolArray: Use %i or %I for an array of symbols.
+  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+Gemfile:37:81: C: Layout/LineLength: Line is too long. [98/80]
+  # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
+                                                                                ^^^^^^^^^^^^^^^^^^
+Gemfile:39:81: C: Layout/LineLength: Line is too long. [103/80]
+  # Display performance information such as SQL time and flame graphs for each request in your browser.
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^
+Gemfile:42:3: C: Bundler/OrderedGems: Gems should be sorted in an alphabetical order within their section of the Gemfile. Gem listen should appear before rack-mini-profiler.
+  gem 'listen', '~> 3.3'
+  ^^^^^^^^^^^^^^^^^^^^^^
+Gemfile:43:81: C: Layout/LineLength: Line is too long. [130/80]
+  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Gemfile:45:3: C: Layout/LeadingCommentSpace: Missing space after #.
+  #Rubocop uses the official ruby style guide and helps curate a clean and readable codebase.
+  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Gemfile:45:81: C: Layout/LineLength: Line is too long. [93/80]
+  #Rubocop uses the official ruby style guide and helps curate a clean and readable codebase.
+                                                                                ^^^^^^^^^^^^^
+Gemfile:58:31: C: Style/SymbolArray: Use %i or %I for an array of symbols.
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Rakefile:1:1: C: Style/FrozenStringLiteralComment: Missing frozen string literal comment.
+# Add your own tasks in files placed in lib/tasks ending in .rake,
+^
+Rakefile:2:81: C: Layout/LineLength: Line is too long. [90/80]
+# for example lib/tasks/capistrano.rake, and they will automatically be available to Rake.
+                                                                                ^^^^^^^^^^
+Rakefile:4:18: C: Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+require_relative "config/application"
+                 ^^^^^^^^^^^^^^^^^^^^
+app/channels/application_cable/channel.rb:1:1: C: Style/FrozenStringLiteralComment: Missing frozen string literal comment.
+module ApplicationCable
+^
+app/channels/application_cable/connection.rb:1:1: C: Style/FrozenStringLiteralComment: Missing frozen string literal comment.
+module ApplicationCable
+^
+app/controllers/application_controller.rb:1:1: C: Style/FrozenStringLiteralComment: Missing frozen string literal comment.
+class ApplicationController < ActionController::Base
+^
+app/helpers/application_helper.rb:1:1: C: Style/Documentation: Missing top-level module documentation comment.
+module ApplicationHelper
+^^^^^^
+app/helpers/application_helper.rb:1:1: C: Style/FrozenStringLiteralComment: Missing frozen string literal comment.
+module ApplicationHelper
+^
+app/jobs/application_job.rb:1:1: C: Style/FrozenStringLiteralComment: Missing frozen string literal comment.
+class ApplicationJob < ActiveJob::Base
+^
+app/jobs/application_job.rb:5:81: C: Layout/LineLength: Line is too long. [82/80]
+  # Most jobs are safe to ignore if the underlying records are no longer available
+                                                                                ^^
+app/mailers/application_mailer.rb:1:1: C: Style/Documentation: Missing top-level class documentation comment.
+class ApplicationMailer < ActionMailer::Base
+^^^^^
+app/mailers/application_mailer.rb:1:1: C: Style/FrozenStringLiteralComment: Missing frozen string literal comment.
+class ApplicationMailer < ActionMailer::Base
+^
+app/models/application_record.rb:1:1: C: Style/Documentation: Missing top-level class documentation comment.
+class ApplicationRecord < ActiveRecord::Base
+^^^^^
+app/models/application_record.rb:1:1: C: Style/FrozenStringLiteralComment: Missing frozen string literal comment.
+class ApplicationRecord < ActiveRecord::Base
+^
+bin/bundle:11:9: C: Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+require "rubygems"
+        ^^^^^^^^^^
+bin/bundle:17:22: C: Style/SpecialGlobalVars: Prefer $PROGRAM_NAME over $0.
+    File.expand_path($0) == File.expand_path(__FILE__)
+                     ^^
+bin/bundle:21:9: C: Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+    ENV["BUNDLER_VERSION"]
+        ^^^^^^^^^^^^^^^^^
+bin/bundle:24:3: C: Metrics/CyclomaticComplexity: Cyclomatic complexity for cli_arg_version is too high. [8/6]
+  def cli_arg_version ...
+  ^^^^^^^^^^^^^^^^^^^
+bin/bundle:24:3: C: Metrics/MethodLength: Method has too many lines. [13/10]
+  def cli_arg_version ...
+  ^^^^^^^^^^^^^^^^^^^
+bin/bundle:24:3: C: Metrics/PerceivedComplexity: Perceived complexity for cli_arg_version is too high. [8/7]
+  def cli_arg_version ...
+  ^^^^^^^^^^^^^^^^^^^
+bin/bundle:26:5: C: Layout/EmptyLineAfterGuardClause: Add empty line after guard clause.
+    return unless "update".start_with?(ARGV.first || " ") # must be running `bundle update`
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+bin/bundle:26:12: C: Style/IfUnlessModifier: Modifier form of unless makes the line too long.
+    return unless "update".start_with?(ARGV.first || " ") # must be running `bundle update`
+           ^^^^^^
+bin/bundle:26:19: C: Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+    return unless "update".start_with?(ARGV.first || " ") # must be running `bundle update`
+                  ^^^^^^^^
+bin/bundle:26:54: C: Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+    return unless "update".start_with?(ARGV.first || " ") # must be running `bundle update`
+                                                     ^^^
+bin/bundle:26:81: C: Layout/LineLength: Line is too long. [91/80]
+    return unless "update".start_with?(ARGV.first || " ") # must be running `bundle update`
+                                                                                ^^^^^^^^^^^
+bin/bundle:30:81: C: Layout/LineLength: Line is too long. [94/80]
+      if update_index && update_index.succ == i && a =~ Gem::Version::ANCHORED_VERSION_PATTERN
+                                                                                ^^^^^^^^^^^^^^
+bin/bundle:33:7: C: Layout/EmptyLineAfterGuardClause: Add empty line after guard clause.
+      next unless a =~ /\A--bundler(?:[= ](#{Gem::Version::VERSION_PATTERN}))?\z/
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+bin/bundle:33:12: C: Style/IfUnlessModifier: Modifier form of unless makes the line too long.
+      next unless a =~ /\A--bundler(?:[= ](#{Gem::Version::VERSION_PATTERN}))?\z/
+           ^^^^^^
+bin/bundle:33:81: C: Layout/LineLength: Line is too long. [81/80]
+      next unless a =~ /\A--bundler(?:[= ](#{Gem::Version::VERSION_PATTERN}))?\z/
+                                                                                ^
+bin/bundle:34:25: C: Style/PerlBackrefs: Avoid the use of Perl-style backrefs.
+      bundler_version = $1
+                        ^^
+bin/bundle:41:19: C: Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+    gemfile = ENV["BUNDLE_GEMFILE"]
+                  ^^^^^^^^^^^^^^^^
+bin/bundle:44:10: C: Style/ExpandPathArguments: Use expand_path('../Gemfile', __dir__) instead of expand_path('../../Gemfile', __FILE__).
+    File.expand_path("../../Gemfile", __FILE__)
+         ^^^^^^^^^^^
+bin/bundle:44:22: C: Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+    File.expand_path("../../Gemfile", __FILE__)
+                     ^^^^^^^^^^^^^^^
+bin/bundle:50:12: C: Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      when "gems.rb" then gemfile.sub(/\.rb$/, gemfile)
+           ^^^^^^^^^
+bin/bundle:57:5: C: Layout/EmptyLineAfterGuardClause: Add empty line after guard clause.
+    return unless File.file?(lockfile)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+bin/bundle:59:5: C: Layout/EmptyLineAfterGuardClause: Add empty line after guard clause.
+    return unless lockfile_contents =~ /\n\nBUNDLED WITH\n\s{2,}(#{Gem::Version::VERSION_PATTERN})\n/
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+bin/bundle:59:12: C: Style/IfUnlessModifier: Modifier form of unless makes the line too long.
+    return unless lockfile_contents =~ /\n\nBUNDLED WITH\n\s{2,}(#{Gem::Version::VERSION_PATTERN})\n/
+           ^^^^^^
+bin/bundle:59:81: C: Layout/LineLength: Line is too long. [101/80]
+    return unless lockfile_contents =~ /\n\nBUNDLED WITH\n\s{2,}(#{Gem::Version::VERSION_PATTERN})\n/
+                                                                                ^^^^^^^^^^^^^^^^^^^^^
+bin/bundle:66:9: C: Layout/MultilineOperationIndentation: Align the operands of an expression in an assignment spanning multiple lines.
+        lockfile_version
+        ^^^^^^^^^^^^^^^^
+bin/bundle:76:24: C: Style/IfUnlessModifier: Modifier form of unless makes the line too long.
+    return requirement unless Gem::Version.new(Gem::VERSION) < Gem::Version.new("2.7.0")
+                       ^^^^^^
+bin/bundle:76:81: C: Layout/LineLength: Line is too long. [88/80]
+    return requirement unless Gem::Version.new(Gem::VERSION) < Gem::Version.new("2.7.0")
+                                                                                ^^^^^^^^
+bin/bundle:76:81: C: Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+    return requirement unless Gem::Version.new(Gem::VERSION) < Gem::Version.new("2.7.0")
+                                                                                ^^^^^^^
+bin/bundle:78:20: C: Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+    requirement += ".a" if bundler_gem_version.prerelease?
+                   ^^^^
+bin/bundle:84:9: C: Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+    ENV["BUNDLE_GEMFILE"] ||= gemfile
+        ^^^^^^^^^^^^^^^^
+bin/bundle:89:3: C: Metrics/AbcSize: Assignment Branch Condition size for activate_bundler is too high. [<2, 16, 3> 16.4/15]
+  def activate_bundler ...
+  ^^^^^^^^^^^^^^^^^^^^
+bin/bundle:91:11: C: Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      gem "bundler", bundler_requirement
+          ^^^^^^^^^
+bin/bundle:93:5: C: Layout/EmptyLineAfterGuardClause: Add empty line after guard clause.
+    return if gem_error.nil?
+    ^^^^^^^^^^^^^^^^^^^^^^^^
+bin/bundle:95:15: C: Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      require "bundler/version"
+              ^^^^^^^^^^^^^^^^^
+bin/bundle:97:5: C: Layout/EmptyLineAfterGuardClause: Add empty line after guard clause.
+    return if require_error.nil? && Gem::Requirement.new(bundler_requirement).satisfied_by?(Gem::Version.new(Bundler::VERSION))
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+bin/bundle:97:12: C: Style/IfUnlessModifier: Modifier form of if makes the line too long.
+    return if require_error.nil? && Gem::Requirement.new(bundler_requirement).satisfied_by?(Gem::Version.new(Bundler::VERSION))
+           ^^
+bin/bundle:97:81: C: Layout/LineLength: Line is too long. [127/80]
+    return if require_error.nil? && Gem::Requirement.new(bundler_requirement).satisfied_by?(Gem::Version.new(Bundler::VERSION))
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+bin/bundle:98:81: C: Layout/LineLength: Line is too long. [198/80]
+    warn "Activating bundler (#{bundler_requirement}) failed:\n#{gem_error.message}\n\nTo install the version of bundler this project requires, run `gem install bundler -v '#{bundler_requirement}'`"
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+bin/bundle:112:1: C: Style/IfUnlessModifier: Favor modifier if usage when having a single-line body. Another good alternative is the usage of control flow &&/||.
+if m.invoked_as_script?
+^^
+bin/bundle:113:21: C: Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+  load Gem.bin_path("bundler", "bundle")
+                    ^^^^^^^^^
+bin/bundle:113:32: C: Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+  load Gem.bin_path("bundler", "bundle")
+                               ^^^^^^^^
+bin/rails:1:1: C: Style/FrozenStringLiteralComment: Missing frozen string literal comment.
+#!/usr/bin/env ruby
+^
+bin/rails:2:23: C: Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+load File.expand_path("spring", __dir__)
+                      ^^^^^^^^
+bin/rails:4:18: C: Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+require_relative "../config/boot"
+                 ^^^^^^^^^^^^^^^^
+bin/rails:5:9: C: Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+require "rails/commands"
+        ^^^^^^^^^^^^^^^^
+bin/rake:1:1: C: Style/FrozenStringLiteralComment: Missing frozen string literal comment.
+#!/usr/bin/env ruby
+^
+bin/rake:2:23: C: Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+load File.expand_path("spring", __dir__)
+                      ^^^^^^^^
+bin/rake:3:18: C: Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+require_relative "../config/boot"
+                 ^^^^^^^^^^^^^^^^
+bin/rake:4:9: C: Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+require "rake"
+        ^^^^^^
+bin/setup:1:1: C: Style/FrozenStringLiteralComment: Missing frozen string literal comment.
+#!/usr/bin/env ruby
+^
+bin/setup:2:9: C: Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+require "fileutils"
+        ^^^^^^^^^^^
+bin/setup:12:81: C: Layout/LineLength: Line is too long. [88/80]
+  # This script is a way to set up or update your development environment automatically.
+                                                                                ^^^^^^^^
+bin/setup:13:81: C: Layout/LineLength: Line is too long. [96/80]
+  # This script is idempotent, so that you can run it at any time and get an expectable outcome.
+                                                                                ^^^^^^^^^^^^^^^^
+bin/spring:1:1: C: Style/FrozenStringLiteralComment: Missing frozen string literal comment.
+#!/usr/bin/env ruby
+^
+bin/spring:2:31: C: Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+if !defined?(Spring) && [nil, "development", "test"].include?(ENV["RAILS_ENV"])
+                              ^^^^^^^^^^^^^
+bin/spring:2:46: C: Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+if !defined?(Spring) && [nil, "development", "test"].include?(ENV["RAILS_ENV"])
+                                             ^^^^^^
+bin/spring:2:67: C: Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+if !defined?(Spring) && [nil, "development", "test"].include?(ENV["RAILS_ENV"])
+                                                                  ^^^^^^^^^^^
+bin/spring:3:7: C: Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+  gem "bundler"
+      ^^^^^^^^^
+bin/spring:4:11: C: Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+  require "bundler"
+          ^^^^^^^^^
+bin/spring:7:58: C: Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+  Bundler.locked_gems&.specs&.find { |spec| spec.name == "spring" }&.tap do |spring|
+                                                         ^^^^^^^^
+bin/spring:7:81: C: Layout/LineLength: Line is too long. [84/80]
+  Bundler.locked_gems&.specs&.find { |spec| spec.name == "spring" }&.tap do |spring|
+                                                                                ^^^^
+bin/spring:9:9: C: Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+    gem "spring", spring.version
+        ^^^^^^^^
+bin/spring:10:13: C: Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+    require "spring/binstub"
+            ^^^^^^^^^^^^^^^^
+bin/webpack:1:1: C: Style/FrozenStringLiteralComment: Missing frozen string literal comment.
+#!/usr/bin/env ruby
+^
+bin/webpack:3:5: C: Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+ENV["RAILS_ENV"] ||= ENV["RACK_ENV"] || "development"
+    ^^^^^^^^^^^
+bin/webpack:3:26: C: Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+ENV["RAILS_ENV"] ||= ENV["RACK_ENV"] || "development"
+                         ^^^^^^^^^^
+bin/webpack:3:41: C: Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+ENV["RAILS_ENV"] ||= ENV["RACK_ENV"] || "development"
+                                        ^^^^^^^^^^^^^
+bin/webpack:4:5: C: Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+ENV["NODE_ENV"]  ||= "development"
+    ^^^^^^^^^^
+bin/webpack:4:22: C: Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+ENV["NODE_ENV"]  ||= "development"
+                     ^^^^^^^^^^^^^
+bin/webpack:6:9: C: Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+require "pathname"
+        ^^^^^^^^^^
+bin/webpack:7:5: C: Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+ENV["BUNDLE_GEMFILE"] ||= File.expand_path("../../Gemfile",
+    ^^^^^^^^^^^^^^^^
+bin/webpack:7:44: C: Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+ENV["BUNDLE_GEMFILE"] ||= File.expand_path("../../Gemfile",
+                                           ^^^^^^^^^^^^^^^
+bin/webpack:8:3: C: Layout/ArgumentAlignment: Align the arguments of a method call if they span more than one line.
+  Pathname.new(__FILE__).realpath)
+  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+bin/webpack:10:9: C: Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+require "bundler/setup"
+        ^^^^^^^^^^^^^^^
+bin/webpack:12:9: C: Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+require "webpacker"
+        ^^^^^^^^^^^
+bin/webpack:13:9: C: Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+require "webpacker/webpack_runner"
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+bin/webpack:15:29: C: Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+APP_ROOT = File.expand_path("..", __dir__)
+                            ^^^^
+bin/webpack-dev-server:1:1: C: Style/FrozenStringLiteralComment: Missing frozen string literal comment.
+#!/usr/bin/env ruby
+^
+bin/webpack-dev-server:3:5: C: Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+ENV["RAILS_ENV"] ||= ENV["RACK_ENV"] || "development"
+    ^^^^^^^^^^^
+bin/webpack-dev-server:3:26: C: Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+ENV["RAILS_ENV"] ||= ENV["RACK_ENV"] || "development"
+                         ^^^^^^^^^^
+bin/webpack-dev-server:3:41: C: Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+ENV["RAILS_ENV"] ||= ENV["RACK_ENV"] || "development"
+                                        ^^^^^^^^^^^^^
+bin/webpack-dev-server:4:5: C: Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+ENV["NODE_ENV"]  ||= "development"
+    ^^^^^^^^^^
+bin/webpack-dev-server:4:22: C: Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+ENV["NODE_ENV"]  ||= "development"
+                     ^^^^^^^^^^^^^
+bin/webpack-dev-server:6:9: C: Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+require "pathname"
+        ^^^^^^^^^^
+bin/webpack-dev-server:7:5: C: Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+ENV["BUNDLE_GEMFILE"] ||= File.expand_path("../../Gemfile",
+    ^^^^^^^^^^^^^^^^
+bin/webpack-dev-server:7:44: C: Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+ENV["BUNDLE_GEMFILE"] ||= File.expand_path("../../Gemfile",
+                                           ^^^^^^^^^^^^^^^
+bin/webpack-dev-server:8:3: C: Layout/ArgumentAlignment: Align the arguments of a method call if they span more than one line.
+  Pathname.new(__FILE__).realpath)
+  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+bin/webpack-dev-server:10:9: C: Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+require "bundler/setup"
+        ^^^^^^^^^^^^^^^
+bin/webpack-dev-server:12:9: C: Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+require "webpacker"
+        ^^^^^^^^^^^
+bin/webpack-dev-server:13:9: C: Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+require "webpacker/dev_server_runner"
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+bin/webpack-dev-server:15:29: C: Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+APP_ROOT = File.expand_path("..", __dir__)
+                            ^^^^
+bin/yarn:1:1: C: Style/FrozenStringLiteralComment: Missing frozen string literal comment.
+#!/usr/bin/env ruby
+^
+bin/yarn:4:10: C: Style/InverseMethods: Use reject instead of inverting select.
+  yarn = ENV["PATH"].split(File::PATH_SEPARATOR). ...
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+bin/yarn:4:14: C: Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+  yarn = ENV["PATH"].split(File::PATH_SEPARATOR).
+             ^^^^^^
+bin/yarn:4:49: C: Layout/DotPosition: Place the . on the next line, together with the method name.
+  yarn = ENV["PATH"].split(File::PATH_SEPARATOR).
+                                                ^
+bin/yarn:5:5: C: Layout/MultilineMethodCallIndentation: Align select with ENV["PATH"].split(File::PATH_SEPARATOR). on line 4.
+    select { |dir| File.expand_path(dir) != __dir__ }.
+    ^^^^^^
+bin/yarn:5:54: C: Layout/DotPosition: Place the . on the next line, together with the method name.
+    select { |dir| File.expand_path(dir) != __dir__ }.
+                                                     ^
+bin/yarn:6:5: C: Layout/MultilineMethodCallIndentation: Align product with ENV["PATH"].split(File::PATH_SEPARATOR). on line 4.
+    product(["yarn", "yarn.cmd", "yarn.ps1"]).
+    ^^^^^^^
+bin/yarn:6:14: C: Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+    product(["yarn", "yarn.cmd", "yarn.ps1"]).
+             ^^^^^^
+bin/yarn:6:22: C: Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+    product(["yarn", "yarn.cmd", "yarn.ps1"]).
+                     ^^^^^^^^^^
+bin/yarn:6:34: C: Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+    product(["yarn", "yarn.cmd", "yarn.ps1"]).
+                                 ^^^^^^^^^^
+bin/yarn:6:46: C: Layout/DotPosition: Place the . on the next line, together with the method name.
+    product(["yarn", "yarn.cmd", "yarn.ps1"]).
+                                             ^
+bin/yarn:7:5: C: Layout/MultilineMethodCallIndentation: Align map with ENV["PATH"].split(File::PATH_SEPARATOR). on line 4.
+    map { |dir, file| File.expand_path(file, dir) }.
+    ^^^
+bin/yarn:7:52: C: Layout/DotPosition: Place the . on the next line, together with the method name.
+    map { |dir, file| File.expand_path(file, dir) }.
+                                                   ^
+bin/yarn:8:5: C: Layout/MultilineMethodCallIndentation: Align find with ENV["PATH"].split(File::PATH_SEPARATOR). on line 4.
+    find { |file| File.executable?(file) }
+    ^^^^
+bin/yarn:13:5: C: Style/StderrPuts: Use warn instead of $stderr.puts to allow such output to be disabled.
+    $stderr.puts "Yarn executable was not detected in the system."
+    ^^^^^^^^^^^^
+bin/yarn:13:18: C: Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+    $stderr.puts "Yarn executable was not detected in the system."
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+bin/yarn:14:5: C: Style/StderrPuts: Use warn instead of $stderr.puts to allow such output to be disabled.
+    $stderr.puts "Download Yarn at https://yarnpkg.com/en/docs/install"
+    ^^^^^^^^^^^^
+bin/yarn:14:18: C: Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+    $stderr.puts "Download Yarn at https://yarnpkg.com/en/docs/install"
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+config.ru:1:1: C: Style/FrozenStringLiteralComment: Missing frozen string literal comment.
+# This file is used by Rack-based servers to start the application.
+^
+config.ru:3:18: C: Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+require_relative "config/environment"
+                 ^^^^^^^^^^^^^^^^^^^^
+
+18 files inspected, 135 offenses detected
