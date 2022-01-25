@@ -8,7 +8,8 @@ ruby '2.7.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.4'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3', '~> 1.4'
+#gem 'sqlite3', '~> 1.4'
+gem 'pg'
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
 # Use SCSS for stylesheets
@@ -36,6 +37,7 @@ group :development, :test do
   # Brings the RSpec testing framework to Ruby on Rails as a drop-in alternative to its default testing framework, Minitest.
   gem 'rails-controller-testing'
   gem 'rspec-rails', '~> 5.0.0'
+  gem 'dotenv-rails'
 end
 
 group :development do
