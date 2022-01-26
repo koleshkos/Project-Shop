@@ -52,8 +52,13 @@ jobs:
       - run:
           name: Database setup
           command: bundle exec rails db:schema:load --trace
-      - ruby/rspec-test:
-          include: spec/**/*_spec.rb
+      - run:
+          name: Run RSpec
+          command: bundle exec rspec
+      - store_test_results:
+          path: ~/rspec
+      - store_artifacts:
+          path: ~/rspec
 
 workflows:
   version: 2
