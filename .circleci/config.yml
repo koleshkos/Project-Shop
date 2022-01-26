@@ -31,7 +31,7 @@ jobs:
           password: $DOCKERHUB_PASSWORD  
         environment: 
           POSTGRES_USER: circleci-demo-ruby
-          POSTGRES_DB: rails_blog_test
+          POSTGRES_DB: db/shop_test
           POSTGRES_PASSWORD: ""
     environment:
       BUNDLE_JOBS: "3"
@@ -46,14 +46,14 @@ jobs:
       - node/install-packages:
           pkg-manager: yarn
           cache-key: "yarn.lock"
-      
       - run:
           name: Wait for DB
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run:
           name: Database setup
           command: bundle exec rails db:schema:load --trace
-      - ruby/rspec-test
+      - ruby/rspec-test:
+          include: spec/**/*_spec.rb
 
 workflows:
   version: 2
