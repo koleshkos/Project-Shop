@@ -17,6 +17,10 @@ jobs:
       - node/install-packages:
           pkg-manager: yarn
           cache-key: "yarn.lock"
+      - run:
+          name: rubocop
+          command: |
+            bundle exec rubocop
 
   test: 
     parallelism: 3
