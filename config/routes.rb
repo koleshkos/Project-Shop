@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
-  root 'pages#home'
-  
-  resources :admin
+  root 'static_pages#home'
+  get '/admin', to: 'static_pages#admin_home'
+
+  scope '/admin' do
+    resources :products
+  end
+
+  resources :products
 
 end

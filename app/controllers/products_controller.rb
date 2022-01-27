@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
-class AdminController < ApplicationController
+class ProductsController < ApplicationController
   def index; end
 end
