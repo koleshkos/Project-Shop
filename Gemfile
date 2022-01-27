@@ -35,7 +35,6 @@ gem 'bootsnap', '>= 1.4.4', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
-  # Brings the RSpec testing framework to Ruby on Rails as a drop-in alternative to its default testing framework, Minitest.
   gem 'dotenv-rails'
   gem 'rails-controller-testing'
   gem 'rspec-rails', '~> 5.0.0'
@@ -51,8 +50,10 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   # Rubocop uses the official ruby style guide and helps curate a clean and readable codebase.
-  gem 'rubocop', '~> 0.81.0', require: false
+  gem 'rubocop', require: false
   gem 'rubocop-performance', require: false
+  gem 'rubocop-rails', '~> 2.13'
+  gem 'rubocop-rspec', '~> 2.8'
 end
 
 group :test do

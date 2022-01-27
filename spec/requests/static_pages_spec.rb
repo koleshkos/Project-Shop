@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-RSpec.describe 'Pages', type: :request do 
+RSpec.describe 'Pages', type: :request do
   describe 'GET /' do
     it 'return success http status' do
       get '/'
