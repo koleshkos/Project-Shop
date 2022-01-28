@@ -3,12 +3,14 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.0'
+ruby '2.7.5'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.4'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3', '~> 1.4'
+# Use pg as the database for Active Record
+gem 'pg'
+# Use haml - an alternative way to use in your views
+gem 'haml'
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
 # Use SCSS for stylesheets
@@ -33,6 +35,9 @@ gem 'bootsnap', '>= 1.4.4', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'dotenv-rails'
+  gem 'rails-controller-testing'
+  gem 'rspec-rails', '~> 5.0.0'
 end
 
 group :development do
@@ -45,8 +50,10 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   # Rubocop uses the official ruby style guide and helps curate a clean and readable codebase.
-  gem 'rubocop', '~> 0.81.0', require: false
+  gem 'rubocop', require: false
   gem 'rubocop-performance', require: false
+  gem 'rubocop-rails', '~> 2.13'
+  gem 'rubocop-rspec', '~> 2.8'
 end
 
 group :test do
@@ -54,6 +61,8 @@ group :test do
   gem 'capybara', '>= 3.26'
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
+  gem 'rspec'
+  gem 'rspec_junit_formatter'
   gem 'webdrivers'
 end
 
