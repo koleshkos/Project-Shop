@@ -1,0 +1,22 @@
+= form_with model: @product do |f|
+  .mb-3.row
+    .col-sm-2.col-form-label
+      = f.label :name
+    .col-sm-10
+      = f.text_field :name, placeholder: "Title", class: 'form-control'
+  .mb-3.row
+    .col-sm-2.col-form-label
+      = f.label :image
+    .col-sm-10
+      = f.file_field :image, class: 'form-control'
+  .mb-3.row
+    .col-sm-2.col-form-label
+      = f.label :price
+    .col-sm-10
+      = f.number_field :price, class: 'form-control'
+  .mb-3.row
+    .col-sm-2.col-form-label
+      = f.label :description
+    .col-sm-10
+      = f.text_area :description, class: 'form-control'
+  = f.submit "Submit", class: 'btn btn-primary'
