@@ -2,4 +2,9 @@
 
 class Product < ApplicationRecord
   mount_uploader :image, ImageUploader
+
+  validates :name, presence: true, length: {minimum: 2, maximun: 500}
+  validates :code, presence: true, format: { with: /^[a-z0-9]+[-a-z0-9]*[a-z0-9]+$/i }, length: { is: 7}
+  validates :price, numericality: { greater_than: 0, less_than: 1000000 }, length: {minimum: 2, maximun: 500}
+  validates :description, length: {minimum: 1, maximun: 5000}
 end
