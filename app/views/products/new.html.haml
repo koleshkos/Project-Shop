@@ -1,0 +1,18 @@
+%div
+  = form_for @product, hatm:{multipart: true} do |f|
+    = f.label :name
+    = f.text_field :name
+
+    = f.label :image
+    = f.file_field :image
+
+    = f.label :code
+    = f.text_field :code
+
+    = f.label :price
+    = f.number_field :price
+
+    = f.label :description
+    = f.text_field :description
+
+    = f.submit 'Save'
