@@ -1,9 +1,14 @@
+= render 'shared/errors', object: @product
+
 = form_with model: @product do |f|
   = f.label :name
-  = f.text_field :name, placeholder: "Title", class: 'form-control'
+  = f.text_field :name, class: 'form-control'
   %br
   = f.label :image
   = f.file_field :image, class: 'form-control'
+  %br
+  = f.label :code
+  = f.number_field :code, class: 'form-control'
   %br
   = f.label :price
   = f.number_field :price, class: 'form-control'
