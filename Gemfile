@@ -30,8 +30,10 @@ gem 'jbuilder', '~> 2.7'
 # gem 'image_processing', '~> 1.2'
 
 # Use for upload images
+gem 'aws-sdk-s3', require: false
 gem 'carrierwave'
 gem 'fog'
+gem 'image_processing', '~> 1.2'
 gem 'mini_magick'
 
 # Reduces boot times through caching; required in config/boot.rb
