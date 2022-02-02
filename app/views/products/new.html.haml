@@ -18,3 +18,4 @@
     = f.text_field :description, class: 'form-control'
     %br
     = f.submit 'Save', class: 'btn btn-primary'
+    = link_to 'Cancel', products_path, data: { confirm: "Are you sure?" }, class: 'btn btn-danger'
