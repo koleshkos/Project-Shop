@@ -1,21 +1,4 @@
 = render 'shared/errors', object: @product
 
 %div
-  = form_for @product, hatm:{multipart: true} do |f|
-    = f.label :name
-    = f.text_field :name, class: 'form-control'
-    %br
-    = f.label :image
-    = f.file_field :image, class: 'form-control'
-    %br
-    = f.label :code
-    = f.text_field :code, class: 'form-control'
-    %br
-    = f.label :price
-    = f.number_field :price, class: 'form-control'
-    %br
-    = f.label :description
-    = f.text_field :description, class: 'form-control'
-    %br
-    = f.submit 'Save', class: 'btn btn-primary'
-    = link_to 'Cancel', products_path, data: { confirm: "Are you sure?" }, class: 'btn btn-danger'
+  = render 'form'

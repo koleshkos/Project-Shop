@@ -6,7 +6,7 @@
         %h5.card-header
           = product.name
         - if product.image.url == nil
-          = image_tag('image.png', class: 'card-img-top', size: "400x300")
+          = image_tag('no-image.jpg', class: 'card-img-top', size: "400x300")
         - else
           = image_tag(product.image.url, class: 'card-img-top', size: "400x300")
         .card-body
@@ -14,7 +14,7 @@
             = product.description
         %ul.list-group.list-group-flush
           %li.list-group-item
-            = product.price
+            = number_to_currency(product.price)
           %li.list-group-item
             = product.code
         .card-body
