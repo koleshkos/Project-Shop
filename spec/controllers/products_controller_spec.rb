@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe ProductsController, type: :controller do
-  let(:product) { Product.create(name: 'Product', image: 'product.jpg', code: '12345RE', price: 1000, description: 'My Product') }
+  let(:product) { create(:product) }
 
   describe 'GET index' do
     subject(:index) { get :index }
@@ -70,27 +70,49 @@ RSpec.describe ProductsController, type: :controller do
   end
 
   describe 'POST create' do
-    let(:product) { Product.new }
-
     it 'returns a success response' do
-      post :create, params: { id: product, product: { name: 'Product', image: 'product.jpg', code: '12345RE', price: 1000, description: 'My Product' } }
+      post :create, params: {
+        id: product, product: {
+          name: Faker::Device.model_name, image: Faker::File.file_name(ext: 'jpg'),
+          code: Faker::Alphanumeric.alphanumeric(number: 7), price: Faker::Number.number(digits: 7),
+          description: Faker::Lorem.paragraph_by_chars(number: 1000),
+        },
+      }
       expect(response).to be_redirect
     end
 
     it 'with bad data' do
-      post :create, params: { id: product, product: { name: 'Product', image: 'product.jpg', code: 1000, price: '12345RE', description: 'My Product' } }
+      post :create, params: {
+        id: product, product: {
+          name: Faker::Device.model_name, image: Faker::File.file_name(ext: 'jpg'),
+          code: Faker::Alphanumeric.alphanumeric(number: 7), price: Faker::Number.negative,
+          description: Faker::Lorem.paragraph_by_chars(number: 1000),
+        },
+      }
       expect(response).not_to be_redirect
     end
   end
 
   describe 'PATCH update' do
     it 'updates the product and redirects' do
-      patch :update, params: { id: product, product: { name: 'Product', image: 'product.jpg', code: '12345RE', price: 1000, description: 'My Product' } }
+      patch :update, params: {
+        id: product, product: {
+          name: Faker::Device.model_name, image: Faker::File.file_name(ext: 'jpg'),
+          code: Faker::Alphanumeric.alphanumeric(number: 7), price: Faker::Number.number(digits: 7),
+          description: Faker::Lorem.paragraph_by_chars(number: 1000),
+        },
+      }
       expect(response).to be_redirect
     end
 
     it 'with bad data' do
-      patch :update, params: { id: product, product: { name: 'Product', image: 'product.jpg', code: 1000, price: '12345RE', description: 'My Product' } }
+      patch :update, params: {
+        id: product, product: {
+          name: Faker::Device.model_name, image: Faker::File.file_name(ext: 'jpg'),
+          code: Faker::Alphanumeric.alphanumeric(number: 7), price: Faker::Number.negative,
+          description: Faker::Lorem.paragraph_by_chars(number: 1000),
+        },
+      }
       expect(response).not_to be_redirect
     end
   end
