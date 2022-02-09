@@ -46,6 +46,7 @@ group :development, :test do
   gem 'faker', git: 'https://github.com/faker-ruby/faker.git', branch: 'master'
   gem 'rails-controller-testing'
   gem 'rspec-rails', '~> 5.0.0'
+  gem 'factory_bot_rails', '~> 6.1.0'
 end
 
 group :development do

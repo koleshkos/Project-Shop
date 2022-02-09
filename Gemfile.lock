@@ -127,6 +127,11 @@ GEM
     dry-inflector (0.2.1)
     erubi (1.10.0)
     excon (0.90.0)
+    factory_bot (6.1.0)
+      activesupport (>= 5.0.0)
+    factory_bot_rails (6.1.0)
+      factory_bot (~> 6.1.0)
+      railties (>= 5.0.0)
     faraday (0.17.4)
       multipart-post (>= 1.2, < 3)
     ffi (1.15.5)
@@ -598,6 +603,7 @@ DEPENDENCIES
   capybara (>= 3.26)
   carrierwave
   dotenv-rails
+  factory_bot_rails (~> 6.1.0)
   faker!
   fog
   haml
