@@ -3,9 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe ProductsController, type: :controller do
-  let(:product) { create(:product) }
-
-  describe 'GET index' do
+  describe '#index' do
     subject(:index) { get :index }
 
     it 'returns a success response' do
@@ -21,7 +19,9 @@ RSpec.describe ProductsController, type: :controller do
     end
   end
 
-  describe 'GET show' do
+  describe '#show' do
+    product = FactoryBot.create(:product)
+
     it 'returns a success response' do
       get :show, params: { id: product }
       expect(response).to have_http_status(:success)
@@ -37,7 +37,9 @@ RSpec.describe ProductsController, type: :controller do
     end
   end
 
-  describe 'GET edit' do
+  describe '#edit' do
+    product = FactoryBot.create(:product)
+
     it 'returns a success response' do
       get :edit, params: { id: product }
       expect(response).to have_http_status(:success)
@@ -53,7 +55,9 @@ RSpec.describe ProductsController, type: :controller do
     end
   end
 
-  describe 'GET new' do
+  describe '#new' do
+    product = FactoryBot.create(:product)
+
     it 'returns a success response' do
       get :new, params: { id: product }
       expect(response).to have_http_status(:success)
@@ -69,55 +73,59 @@ RSpec.describe ProductsController, type: :controller do
     end
   end
 
-  describe 'POST create' do
+  describe '#create' do
+    bad_product = FactoryBot.build(:product, :invalid_params)
+    product = FactoryBot.create(:product)
+
+    it 'product be created' do
+      post :create, params: { id: product, product: product.attributes }
+      expect(product.save).to eq true
+    end
+
+    it 'product not be created' do
+      post :create, params: { id: product, product: bad_product.attributes }
+      expect(bad_product.save).to_not eq true
+    end
+
     it 'returns a success response' do
-      post :create, params: {
-        id: product, product: {
-          name: Faker::Device.model_name, image: Faker::File.file_name(ext: 'jpg'),
-          code: Faker::Alphanumeric.alphanumeric(number: 7), price: Faker::Number.number(digits: 7),
-          description: Faker::Lorem.paragraph_by_chars(number: 1000),
-        },
-      }
+      post :create, params: { id: product, product: product.attributes }
       expect(response).to be_redirect
     end
 
-    it 'with bad data' do
-      post :create, params: {
-        id: product, product: {
-          name: Faker::Device.model_name, image: Faker::File.file_name(ext: 'jpg'),
-          code: Faker::Alphanumeric.alphanumeric(number: 7), price: Faker::Number.negative,
-          description: Faker::Lorem.paragraph_by_chars(number: 1000),
-        },
-      }
+    it 'not redirect with bad data' do
+      post :create, params: { id: product, product: bad_product.attributes }
       expect(response).not_to be_redirect
     end
   end
 
-  describe 'PATCH update' do
+  describe '#update' do
+    bad_product = FactoryBot.build(:product, :invalid_params)
+    product = FactoryBot.create(:product)
+
+    it 'product be updated' do
+      patch :update, params: { id: product, product: product.attributes }
+      expect(product.save).to eq true
+    end
+
+    it 'product not be updated' do
+      patch :update, params: { id: product, product: bad_product.attributes }
+      expect(bad_product.save).to_not eq true
+    end
+
     it 'updates the product and redirects' do
-      patch :update, params: {
-        id: product, product: {
-          name: Faker::Device.model_name, image: Faker::File.file_name(ext: 'jpg'),
-          code: Faker::Alphanumeric.alphanumeric(number: 7), price: Faker::Number.number(digits: 7),
-          description: Faker::Lorem.paragraph_by_chars(number: 1000),
-        },
-      }
+      patch :update, params: { id: product, product: product.attributes }
       expect(response).to be_redirect
     end
 
-    it 'with bad data' do
-      patch :update, params: {
-        id: product, product: {
-          name: Faker::Device.model_name, image: Faker::File.file_name(ext: 'jpg'),
-          code: Faker::Alphanumeric.alphanumeric(number: 7), price: Faker::Number.negative,
-          description: Faker::Lorem.paragraph_by_chars(number: 1000),
-        },
-      }
+    it 'not redirect with bad data' do
+      patch :update, params: { id: product, product: bad_product.attributes }
       expect(response).not_to be_redirect
     end
   end
 
   describe 'DELETE destroy' do
+    product = FactoryBot.create(:product)
+
     it 'return error' do
       delete :destroy, params: { id: product }
       expect { product.reload }.to raise_error(ActiveRecord::RecordNotFound)

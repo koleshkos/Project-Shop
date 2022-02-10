@@ -3,9 +3,9 @@
 require 'rails_helper'
 
 RSpec.describe Product, type: :model do
-  let(:product) { build(:product) }
+  describe 'validation correct name value' do
+    product = FactoryBot.build(:product)
 
-  context 'validation correct name value' do
     it 'name should be present' do
       product.name = nil
       expect(product).to_not be_valid
@@ -17,7 +17,9 @@ RSpec.describe Product, type: :model do
     end
   end
 
-  context 'validation correct code value' do
+  describe 'validation correct code value' do
+    product = FactoryBot.build(:product)
+
     it 'code should be present' do
       product.code = nil
       expect(product).to_not be_valid
@@ -39,7 +41,9 @@ RSpec.describe Product, type: :model do
     end
   end
 
-  context 'validation correct price value' do
+  describe 'validation correct price value' do
+    product = FactoryBot.build(:product)
+
     it 'price should be present' do
       product.price = nil
       expect(product).to_not be_valid
@@ -56,14 +60,17 @@ RSpec.describe Product, type: :model do
     end
   end
 
-  context 'validation correct image value' do
+  describe 'validation correct image value' do
+    product = FactoryBot.create(:product)
+
     it 'image may not be present' do
       product.image = nil
       expect(product).to be_valid
     end
   end
 
-  context 'validation correct decription value' do
+  describe 'validation correct decription value' do
+    product = FactoryBot.build(:product)
     it 'description should be present' do
       product.description = nil
       expect(product).to_not be_valid
