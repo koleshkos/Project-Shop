@@ -1,0 +1,14 @@
+= @product.name
+%br
+= image_tag(@product.image.url, size: "100x100")
+%br
+= @product.code
+%br
+= number_to_currency(@product.price)
+%br
+= @product.description
+%br
+
+= link_to 'Back', products_path, class: 'btn btn-primary'
+= link_to 'Edit', edit_product_path(@product), class: 'btn btn-secondary'
+= link_to 'Destroy', product_path(@product), class: 'btn btn-danger', data: {method: :delete, confirm: "Are you sure?"}

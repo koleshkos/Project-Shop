@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8">
     <title>ProjectShop</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
@@ -11,6 +12,33 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header id="header" class="mb-3">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+          <ul class="navbar-nav mr-auto">
+            <a class="navbar-brand" href="/">MYSHOP</a>
+            <li><%= link_to 'Products', products_path, class: 'nav-link px-2 text-white'%></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <div class="container">
+      <% flash.each do |k, v| %>
+        <%= tag.div v, class: "alert alert-#{k}", role: 'alert' %>
+      <% end %>
+      
+      <%= yield %>
+    </div>
+
+    <footer class="fixed-bottom bg-dark">
+      <div class="container">
+        <div class="d-flex">
+          <div class="footer-left mt-2 mb-2">
+            <span class="text-decoration-none text-white-50" href="#">&copy; <i>koleshkos</i>
+          </div>
+        </div>       
+      </div>
+    </footer>
   </body>
 </html>
