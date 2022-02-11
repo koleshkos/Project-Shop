@@ -26,7 +26,7 @@ RSpec.describe Product, type: :model do
     end
 
     it 'code should not have symbol' do
-      product.code = Faker::String.random(length: 7)
+      product.code = "#{Faker::Lorem.characters(number: 6)}#"
       expect(product).to_not be_valid
     end
 

@@ -59,12 +59,12 @@ RSpec.describe ProductsController, type: :controller do
     product = FactoryBot.create(:product)
 
     it 'returns a success response' do
-      get :new, params: { id: product }
+      get :new
       expect(response).to have_http_status(:success)
     end
 
     it 'renders the new template' do
-      get :new, params: { id: product }
+      get :new
       expect(product).to render_template(:new)
     end
 
@@ -80,20 +80,12 @@ RSpec.describe ProductsController, type: :controller do
     it 'product be created' do
       post :create, params: { id: product, product: product.attributes }
       expect(product.save).to eq true
+      expect(response).to be_redirect
     end
 
     it 'product not be created' do
       post :create, params: { id: product, product: bad_product.attributes }
       expect(bad_product.save).to_not eq true
-    end
-
-    it 'returns a success response' do
-      post :create, params: { id: product, product: product.attributes }
-      expect(response).to be_redirect
-    end
-
-    it 'not redirect with bad data' do
-      post :create, params: { id: product, product: bad_product.attributes }
       expect(response).not_to be_redirect
     end
   end
@@ -105,20 +97,12 @@ RSpec.describe ProductsController, type: :controller do
     it 'product be updated' do
       patch :update, params: { id: product, product: product.attributes }
       expect(product.save).to eq true
+      expect(response).to be_redirect
     end
 
     it 'product not be updated' do
       patch :update, params: { id: product, product: bad_product.attributes }
       expect(bad_product.save).to_not eq true
-    end
-
-    it 'updates the product and redirects' do
-      patch :update, params: { id: product, product: product.attributes }
-      expect(response).to be_redirect
-    end
-
-    it 'not redirect with bad data' do
-      patch :update, params: { id: product, product: bad_product.attributes }
       expect(response).not_to be_redirect
     end
   end
