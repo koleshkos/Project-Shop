@@ -7,10 +7,10 @@
       .card.text-center{style: "width: 18rem;"}
         %h5.card-header
           = product.name
-        - if product.image.url == nil
-          = image_tag('no-image.jpg', class: 'card-img-top', size: "400x300")
-        - else
+        - if product.image?
           = image_tag(product.image.url, class: 'card-img-top', size: "400x300")
+        - else
+          = image_tag('no-image.jpg', class: 'card-img-top', size: "400x300")
         .card-body
           %p.card-text
             = product.description

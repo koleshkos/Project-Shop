@@ -1,6 +1,6 @@
 = @product.name
 %br
-= image_tag(@product.image.url, size: "100x100")
+= image_tag(@product.image.url, size: "100x100") if @product.image?
 %br
 = @product.code
 %br
