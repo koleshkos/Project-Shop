@@ -1,15 +1,29 @@
+%strong Name:
+%br 
 = @product.name
 %br
-= image_tag(@product.image.url, size: "100x100") if @product.image?
+%strong Image: 
+%br
+- if @product.image?
+  = image_tag(@product.image.url, size: "400x400")
+- else
+  = image_tag('no-image.jpg', size: "400x400")
+%br
+%strong Vendor code:
 %br
 = @product.code
 %br
+%strong Price:
+%br
 = number_to_currency(@product.price)
 %br
+%strong Description:
+%br 
 = @product.description
 %br
 
-= link_to 'Back', products_path, class: 'btn btn-primary'
-- if admin?
-  = link_to 'Edit', edit_product_path(@product), class: 'btn btn-secondary'
-  = link_to 'Destroy', product_path(@product), class: 'btn btn-danger', data: {method: :delete, confirm: "Are you sure?"}
+%div.mt-3
+  = link_to 'Back', products_path, class: 'btn btn-primary'
+  - if admin?
+    = link_to 'Edit', edit_product_path(@product), class: 'btn btn-secondary'
+    = link_to 'Destroy', product_path(@product), class: 'btn btn-danger', data: {method: :delete, confirm: "Are you sure?"}
