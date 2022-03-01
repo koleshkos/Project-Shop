@@ -5,9 +5,9 @@
 %strong Image: 
 %br
 - if @product.image?
-  = image_tag(@product.image.url, size: "400x400")
+  = image_tag @product.image.url(:big)
 - else
-  = image_tag('no-image.jpg', size: "400x400")
+  = image_tag('no-image.jpg')
 %br
 %strong Vendor code:
 %br

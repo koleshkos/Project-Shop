@@ -8,9 +8,9 @@
         %h5.card-header
           = product.name
         - if product.image?
-          = image_tag(product.image.url, class: 'card-img-top', size: "400x300")
+          = image_tag(product.image.url(:thumb), class: 'card-img-top')
         - else
-          = image_tag('no-image.jpg', class: 'card-img-top', size: "400x300")
+          = image_tag('no-image.jpg', class: 'card-img-top')
         .card-body
           %p.card-text
             = product.description
