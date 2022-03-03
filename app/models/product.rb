@@ -3,6 +3,8 @@
 class Product < ApplicationRecord
   mount_uploader :image, ImageUploader
 
+  enum status: %i[active deleted]
+
   validates :name, presence: true, length: { minimum: 2, maximum: 500 }
   validate :image, :image_size
   validates :code, presence: true, format: { with: /[a-zA-Z0-9]+\z/ }, length: { is: 7 }
