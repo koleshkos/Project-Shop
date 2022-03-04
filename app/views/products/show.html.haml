@@ -4,10 +4,11 @@
 %br
 %strong Image: 
 %br
-- if @product.image?
-  = image_tag @product.image.url(:big)
-- else
-  = image_tag('no-image.jpg')
+.image
+  - if @product.image?
+    = image_tag @product.image.url
+  - else
+    = image_tag('no-image.jpg')
 %br
 %strong Vendor code:
 %br
