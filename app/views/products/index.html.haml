@@ -1,5 +1,6 @@
 - if admin?
-  = link_to 'New Product', new_product_path, class: 'btn btn-primary mb-5'
+  = link_to 'New Product', new_product_path, class: 'btn btn-primary btn-lg mb-3'
+
 
 .row
   - @products.each do |product|
@@ -23,7 +24,10 @@
           .card-body
             = link_to 'Show', product_path(product), class: 'btn btn-primary'
             = link_to 'Edit', edit_product_path(product), class: 'btn btn-secondary'
-            = link_to 'Delete', product_path(product), data: {method: :delete, confirm: "Are you sure?"}, class: 'btn btn-danger'
+            = link_to 'Delete', product_path(product), {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: 'btn btn-danger'}
+            #modal-window.modal.hide.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", role: "dialog"}
+              .modal-dialog{role: "document"}
+                .modal-content 
     - else
       - if product.active?
         .col-sm-3.mb-5
