@@ -6,31 +6,7 @@
   - @products.each do |product|
     - if admin?
       .col-sm-3.mb-5
-        .card.text-center{style: "width: 18rem;"}
-          %h5.card-header
-            = product.name
-          - if product.image?
-            = image_tag(product.image.url(:thumb), class: 'card-img-top')
-          - else
-            = image_tag('no-image.jpg', class: 'card-img-top')
-          .card-body
-            %p.card-text
-              = product.description
-          %ul.list-group.list-group-flush
-            %li.list-group-item
-              = number_to_currency(product.price)
-            %li.list-group-item
-              = product.code
-          .card-body
-            = link_to 'Show', product_path(product), class: 'btn btn-primary'
-            = link_to 'Edit', edit_product_path(product), class: 'btn btn-secondary'
-            = link_to 'Delete', product_path(product), {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: 'btn btn-danger'}
-            #modal-window.modal.hide.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", role: "dialog"}
-              .modal-dialog{role: "document"}
-                .modal-content 
-    - else
-      - if product.active?
-        .col-sm-3.mb-5
+        = link_to product_path(product) do
           .card.text-center{style: "width: 18rem;"}
             %h5.card-header
               = product.name
@@ -47,4 +23,27 @@
               %li.list-group-item
                 = product.code
             .card-body
-              = link_to 'Show', product_path(product), class: 'btn btn-primary'
+              = link_to 'Edit', edit_product_path(product), class: 'btn btn-secondary'
+              = link_to 'Delete', product_path(product), {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: 'btn btn-danger'}
+              #modal-window.modal.hide.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", role: "dialog"}
+                .modal-dialog{role: "document"}
+                  .modal-content 
+    - else
+      - if product.active?
+        .col-sm-3.mb-5
+          = link_to product_path(product) do
+            .card.card-link.text-center{style: "width: 18rem;"}
+              %h5.card-header
+                = product.name
+              - if product.image?
+                = image_tag(product.image.url(:thumb), class: 'card-img-top')
+              - else
+                = image_tag('no-image.jpg', class: 'card-img-top')
+              .card-body
+                %p.card-text
+                  = product.description
+              %ul.list-group.list-group-flush
+                %li.list-group-item
+                  = number_to_currency(product.price)
+                %li.list-group-item
+                  = product.code
