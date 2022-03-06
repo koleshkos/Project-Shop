@@ -28,6 +28,4 @@
   - if admin?
     = link_to 'Edit', edit_product_path(@product), class: 'btn btn-secondary'
     = link_to 'Destroy', product_path(@product), {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: 'btn btn-danger'}
-    #modal-window.modal.hide.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", role: "dialog"}
-      .modal-dialog{role: "document"}
-        .modal-content 
+    = render 'modal_window'

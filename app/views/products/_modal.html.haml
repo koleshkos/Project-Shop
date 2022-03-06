@@ -1,0 +1,8 @@
+.modal-header
+  %button.btn-close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+  %h4#myModalLabel.modal-title Delete product
+.modal-body
+  Are you sure you want to delete the product?  
+.modal-footer
+  = link_to 'Delete', product_path(@product), data: {method: :delete}, class: 'btn btn-danger'
+  %button.btn.btn-info{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"} Cancel
