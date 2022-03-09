@@ -1,0 +1,11 @@
+#modal-window.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", role: "dialog", tabindex: "-1"}
+  .modal-dialog{role: "document"}
+    .modal-content
+      .modal-header
+        %h5#exampleModalLabel.modal-title Delete product
+        %button.close{"aria-label" => "Close", "data-dismiss" => "modal", type: "button", class: "btn-close"}
+      .modal-body
+        Are you sure you want to delete the product?
+      .modal-footer
+        = link_to 'Delete', product_path(@product), data: {method: :delete}, class: 'btn btn-danger'
+        %button.btn.btn-secondary{"data-dismiss" => "modal", type: "button"} Close 

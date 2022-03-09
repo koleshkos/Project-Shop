@@ -27,5 +27,5 @@
   = link_to 'Back', products_path, class: 'btn btn-primary'
   - if admin?
     = link_to 'Edit', edit_product_path(@product), class: 'btn btn-secondary'
-    = link_to 'Destroy', product_path(@product), {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: 'btn btn-danger'}
-    = render 'modal_window'
+    %button.btn.btn-danger{"data-target" => "#modal-window", "data-toggle" => "modal"} Destroy
+    = render 'delete_product_modal'
