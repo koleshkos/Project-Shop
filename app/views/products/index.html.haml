@@ -1,26 +1,45 @@
 - if admin?
-  = link_to 'New Product', new_product_path, class: 'btn btn-primary mb-5'
+  = link_to 'New Product', new_product_path, class: 'btn btn-primary btn-lg mb-3'
+
 
 .row
   - @products.each do |product|
-    .col-sm-3.mb-5
-      .card.text-center{style: "width: 18rem;"}
-        %h5.card-header
-          = product.name
-        - if product.image?
-          = image_tag(product.image.url, class: 'card-img-top', size: "400x300")
-        - else
-          = image_tag('no-image.jpg', class: 'card-img-top', size: "400x300")
-        .card-body
-          %p.card-text
-            = product.description
-        %ul.list-group.list-group-flush
-          %li.list-group-item
-            = number_to_currency(product.price)
-          %li.list-group-item
-            = product.code
-        .card-body
-          = link_to 'Show', product_path(product), class: 'btn btn-primary'
-          - if admin?
-            = link_to 'Edit', edit_product_path(product), class: 'btn btn-secondary'
-            = link_to 'Delete', product_path(product), data: {method: :delete, confirm: "Are you sure?"}, class: 'btn btn-danger'
+    - if admin?
+      .col-sm-3.mb-5
+        = link_to product_path(product) do
+          .card.text-center{style: "width: 18rem;"}
+            %h5.card-header
+              = product.name
+            - if product.image?
+              = image_tag(product.image.url(:thumb), class: 'card-img-top')
+            - else
+              = image_tag('no-image.jpg', class: 'card-img-top')
+            .card-body
+              %p.card-text
+                = product.description
+            %ul.list-group.list-group-flush
+              %li.list-group-item
+                = number_to_currency(product.price)
+              %li.list-group-item
+                = product.code
+            .card-body
+              = link_to 'Edit', edit_product_path(product), class: 'btn btn-secondary'
+    - else
+      - if product.active?
+        .col-sm-3.mb-5
+          = link_to product_path(product) do
+            .card.card-link.text-center{style: "width: 18rem;"}
+              %h5.card-header
+                = product.name
+              - if product.image?
+                = image_tag(product.image.url(:thumb), class: 'card-img-top')
+              - else
+                = image_tag('no-image.jpg', class: 'card-img-top')
+              .card-body
+                %p.card-text
+                  = product.description
+              %ul.list-group.list-group-flush
+                %li.list-group-item
+                  = number_to_currency(product.price)
+                %li.list-group-item
+                  = product.code

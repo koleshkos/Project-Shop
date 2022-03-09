@@ -3,13 +3,13 @@
   = f.text_field :name, class: 'form-control'
   %br
   = f.label :image
-  .edit-image
-  - if @product.image?
-    = image_tag @product.image.url
-    .checkbox
-      = label_tag :remove_image do 
-        Remove image
-      = f.check_box :remove_image, class: 'mb-3'
+  .mb-3{style: "width: 18rem;"}
+    - if @product.image?
+      = image_tag @product.image.url(:thumb)
+      = label_tag :remove_image do
+        .form-check
+          Remove image
+          = f.check_box :remove_image, class: 'form-check-input'
   = f.file_field :image
   = f.hidden_field :image_cache
   %br

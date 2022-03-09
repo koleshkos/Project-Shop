@@ -107,12 +107,23 @@ RSpec.describe ProductsController, type: :controller do
     end
   end
 
-  describe 'DELETE destroy' do
+  describe '#destroy' do
     product = FactoryBot.create(:product)
 
-    it 'return error' do
+    it 'return a found response' do
       delete :destroy, params: { id: product }
-      expect { product.reload }.to raise_error(ActiveRecord::RecordNotFound)
+      expect(response).to have_http_status(:found)
+    end
+
+    it 'return status deleted' do
+      delete :destroy, params: { id: product }
+      product.deleted!
+      expect(product.status).to eq('deleted')
+    end
+
+    it 'redirect to products list' do
+      delete :destroy, params: { id: product }
+      expect(response).to redirect_to products_path
     end
   end
 end

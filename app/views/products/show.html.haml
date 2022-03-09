@@ -4,10 +4,11 @@
 %br
 %strong Image: 
 %br
-- if @product.image?
-  = image_tag(@product.image.url, size: "400x400")
-- else
-  = image_tag('no-image.jpg', size: "400x400")
+.image
+  - if @product.image?
+    = image_tag @product.image.url
+  - else
+    = image_tag('no-image.jpg')
 %br
 %strong Vendor code:
 %br
@@ -20,10 +21,11 @@
 %strong Description:
 %br 
 = @product.description
-%br
+%br 
 
-%div.mt-3
+%div.mt-3.mb-5
   = link_to 'Back', products_path, class: 'btn btn-primary'
   - if admin?
     = link_to 'Edit', edit_product_path(@product), class: 'btn btn-secondary'
-    = link_to 'Destroy', product_path(@product), class: 'btn btn-danger', data: {method: :delete, confirm: "Are you sure?"}
+    %button.btn.btn-danger{"data-target" => "#modal-window", "data-toggle" => "modal"} Destroy
+    = render 'delete_product_modal'

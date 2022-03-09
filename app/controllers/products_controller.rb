@@ -36,7 +36,7 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    @product.destroy
+    @product.deleted!
     flash[:danger] = 'Product deleted!'
     redirect_to products_path
   end
