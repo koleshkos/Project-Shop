@@ -16,7 +16,7 @@
               = image_tag('no-image.jpg', class: 'card-img-top')
             .card-body
               %p.card-text
-                = product.description
+                = product.description.truncate(120)
             %ul.list-group.list-group-flush
               %li.list-group-item
                 = number_to_currency(product.price)
@@ -24,6 +24,8 @@
                 = product.code
             .card-body
               = link_to 'Edit', edit_product_path(product), class: 'btn btn-secondary'
+              - if product.deleted?
+                %p.status-deleted Deleted
     - else
       - if product.active?
         .col-sm-3.mb-5
@@ -37,7 +39,7 @@
                 = image_tag('no-image.jpg', class: 'card-img-top')
               .card-body
                 %p.card-text
-                  = product.description
+                  = product.description.truncate(120)
               %ul.list-group.list-group-flush
                 %li.list-group-item
                   = number_to_currency(product.price)
