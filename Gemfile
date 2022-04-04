@@ -39,6 +39,10 @@ gem 'fog'
 gem 'image_processing', '~> 1.2'
 gem 'mini_magick'
 
+# for paginateion
+gem 'will_paginate', '~> 3.3'
+gem 'will_paginate-bootstrap-style'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 

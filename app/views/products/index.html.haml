@@ -1,6 +1,7 @@
 - if admin?
   = link_to 'New Product', new_product_path, class: 'btn btn-primary btn-lg mb-3'
 
+= will_paginate @collection, renderer: WillPaginate::ActionView::BootstrapLinkRenderer, list_classes: %w(pagination justify-content-center)
 
 .row
   - @products.each do |product|
@@ -45,3 +46,6 @@
                   = number_to_currency(product.price)
                 %li.list-group-item
                   = product.code
+
+.mb-5
+  = will_paginate @collection, renderer: WillPaginate::ActionView::BootstrapLinkRenderer, list_classes: %w(pagination justify-content-center)
