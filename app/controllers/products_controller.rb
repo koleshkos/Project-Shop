@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ProductsController < ApplicationController
-  before_action :set_product!, only: %i[show edit update destroy]
+  before_action :set_product!, only: %i[show edit update destroy restore]
 
   def index
     @products = Product.all
@@ -38,6 +38,12 @@ class ProductsController < ApplicationController
   def destroy
     @product.deleted!
     flash[:danger] = 'Product deleted!'
+    redirect_to products_path
+  end
+
+  def restore
+    @product.active!
+    flash[:success] = 'Product restored!'
     redirect_to products_path
   end
 

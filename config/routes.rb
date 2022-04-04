@@ -3,6 +3,7 @@
 Rails.application.routes.draw do
   root 'static_pages#home'
   get '/admin', to: 'static_pages#admin_home'
+  get '/admin/products/:id/restore', to: 'products#restore', as: 'product_restore'
 
   scope '/admin' do
     resources :products

@@ -27,5 +27,8 @@
   = link_to 'Back', products_path, class: 'btn btn-primary'
   - if admin?
     = link_to 'Edit', edit_product_path(@product), class: 'btn btn-secondary'
-    %button.btn.btn-danger{"data-target" => "#modal-window", "data-toggle" => "modal"} Destroy
-    = render 'delete_product_modal'
+    - if @product.active?
+      %button.btn.btn-danger{"data-target" => "#modal-window", "data-toggle" => "modal"} Destroy
+      = render 'delete_product_modal'
+    - else
+      = link_to 'Restore', product_restore_path(@product), class: 'btn btn-success'
