@@ -3,10 +3,15 @@
 
 = will_paginate @collection, renderer: WillPaginate::ActionView::BootstrapLinkRenderer, list_classes: %w(pagination justify-content-center)
 
+- if admin?
+  %button.btn.btn-secondary.btn-check-box-set{id: "btn-check-box-set"} Checked all
+  %button.btn.btn-primary.btn-check-box-reset{id: "btn-check-box-reset"} Reset all
+
 .row
   - @products.each do |product|
     - if admin?
       .col-sm-3.mb-5
+        = check_box_tag product.id, product.id
         = link_to product_path(product) do
           .card.text-center{style: "width: 18rem;"}
             %h5.card-header
