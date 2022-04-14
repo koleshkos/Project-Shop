@@ -6,6 +6,8 @@
 - if admin?
   %button.btn.btn-secondary.btn-check-box-set{id: "btn-check-box-set"} Checked all
   %button.btn.btn-primary.btn-check-box-reset{id: "btn-check-box-reset"} Reset all
+  %button.btn.btn-danger{"data-target" => "#modal-window", "data-toggle" => "modal"} Delete
+  = render 'delete_products_modal'
 
 .row
   - @products.each do |product|

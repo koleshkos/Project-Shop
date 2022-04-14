@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ProductsController < ApplicationController
-  before_action :set_product!, only: %i[show edit update destroy restore]
+  before_action :set_product!, only: %i[show edit update restore]
 
   def index
     @products = Product.paginate(page: params[:page], per_page: 12)
@@ -36,7 +36,11 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    @product.deleted!
+    if params[:product_ids].present?
+      params[:product_ids].each do |id|
+        @product = Product.find(id).deleted!
+      end
+    end
     flash[:danger] = 'Product deleted!'
     redirect_to products_path
   end

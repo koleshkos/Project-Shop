@@ -7,5 +7,5 @@
       .modal-body
         Are you sure you want to delete the product?
       .modal-footer
-        %button.btn.btn-secondary{"data-dismiss" => "modal", type: "button"} Close
-        = link_to 'Delete', products_path(product_ids: [@product.id]), data: {method: :delete}, class: "btn btn-danger" 
+        %button.btn.btn-secondary{"data-dismiss" => "modal", type: "button"} Close 
+        %button.btn.btn-danger{id: "btn-check-box-delete"} Delete
