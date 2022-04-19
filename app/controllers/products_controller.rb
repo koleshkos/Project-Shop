@@ -42,7 +42,6 @@ class ProductsController < ApplicationController
       end
     end
     flash[:danger] = 'Product deleted!'
-    redirect_to products_path
   end
 
   def restore

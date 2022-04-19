@@ -7,7 +7,7 @@ $(document).ready(function(){
     $('input').prop('checked', false);
   });
 
-  $('#btn-check-box-delete').on("click", function(){
+  function delete_request() {
     var product_ids = [];
     $('input:checkbox:checked').each(function(){
       product_ids.push($(this).val());
@@ -25,5 +25,7 @@ $(document).ready(function(){
         location.reload();
       }
     });
-  });
+  };
+
+  $('#btn-check-box-delete').on("click", delete_request);
 });
