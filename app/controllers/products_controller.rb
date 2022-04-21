@@ -36,12 +36,16 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    if params[:product_ids].present?
+    if request.xhr?
       params[:product_ids].each do |id|
-        @product = Product.find(id).deleted!
+        Product.find(id).deleted!
       end
+      flash[:danger] = 'Selected products deleted!'
+    else
+      Product.find(params[:id]).deleted!
+      flash[:danger] = 'Product deleted!'
+      redirect_to products_path
     end
-    flash[:danger] = 'Product deleted!'
   end
 
   def restore
