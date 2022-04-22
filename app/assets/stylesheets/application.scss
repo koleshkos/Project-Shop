@@ -37,3 +37,14 @@ a:hover {
 .card-body {
   height: 120px;
 }
+
+.card input {
+  float: right;
+  margin-top: 5px;
+  margin-right: 5px;
+  display: none;
+}
+
+.card:hover input {
+  display: block;
+}
