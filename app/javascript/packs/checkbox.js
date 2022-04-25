@@ -28,4 +28,18 @@ $(document).ready(function(){
   };
 
   $('#btn-check-box-delete').on("click", delete_request);
+  
+  $('input:checkbox').on("click", function(){
+    if ($('input:checkbox:checked').length>0) {
+      $('div.card input').css('display', 'block');
+      $(".btn-tool").css("display", "inline");
+    };
+  });
+
+  $('input:checkbox').change(function() {
+    if ($('input:checkbox:checked').length == 0) {
+      $('div.card input').css('display', 'none');
+      $(".btn-tool").css("display", "none");
+    };
+  });
 });

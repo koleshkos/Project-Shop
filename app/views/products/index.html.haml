@@ -4,9 +4,9 @@
 = will_paginate @collection, renderer: WillPaginate::ActionView::BootstrapLinkRenderer, list_classes: %w(pagination justify-content-center)
 
 - if admin?
-  %button.btn.btn-secondary.btn-check-box-set{id: "btn-check-box-set"} Checked all
-  %button.btn.btn-primary.btn-check-box-reset{id: "btn-check-box-reset"} Reset all
-  %button.btn.btn-danger{"data-target" => "#modal-window", "data-toggle" => "modal"} Delete
+  %button.btn.btn-secondary.btn-check-box-set{id: "btn-check-box-set", class: "btn-tool"} Checked all
+  %button.btn.btn-primary.btn-check-box-reset{id: "btn-check-box-reset", class: "btn-tool"} Reset all
+  %button.btn.btn-danger{"data-target" => "#modal-window", "data-toggle" => "modal", class:"btn-tool"} Delete
   = render 'delete_products_modal'
 
 .row{class: "mt-3"}
