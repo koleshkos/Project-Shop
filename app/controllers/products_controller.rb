@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
   before_action :set_product!, only: %i[show edit update restore]
 
   def index
-    @products = Product.paginate(page: params[:page], per_page: 12)
+    @products = Product.paginate(page: correct_page(params[:page].to_i), per_page: PER_PAGE)
   end
 
   def show; end
@@ -62,5 +62,19 @@ class ProductsController < ApplicationController
 
   def product_params
     params.require(:product).permit(:name, :image, :code, :price, :description, :remove_image)
+  end
+
+  def page_limit
+    (Product.count.to_f / PER_PAGE).ceil
+  end
+
+  def correct_page(page)
+    if page < 1
+      1
+    elsif page > page_limit
+      page_limit
+    else
+      page
+    end
   end
 end
