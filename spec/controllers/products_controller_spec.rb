@@ -109,11 +109,31 @@ RSpec.describe ProductsController, type: :controller do
 
   describe '#destroy' do
     product = FactoryBot.create(:product)
+    count_deleted_products = Product.where(status: 'deleted').count
 
     it 'return status deleted' do
       delete :destroy, params: { id: product }
-      product.deleted!
-      expect(product.status).to eq('deleted')
+      expect(Product.find(product.id).status).to eq('deleted')
+    end
+
+    it 'return correct count active products' do
+      get :destroy, params: { id: product }
+      expect(Product.where(status: 'deleted').count).to eq(count_deleted_products + 1)
+    end
+  end
+
+  describe '#restore' do
+    product = FactoryBot.create(:product)
+    count_active_products = Product.where(status: 'active').count
+
+    it 'return status active' do
+      get :restore, params: { id: product }
+      expect(Product.find(product.id).status).to eq('active')
+    end
+
+    it 'return correct count active products' do
+      get :restore, params: { id: product }
+      expect(Product.where(status: 'active').count).to eq(count_active_products + 1)
     end
   end
 end
