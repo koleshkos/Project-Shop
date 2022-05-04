@@ -21,4 +21,20 @@ RSpec.describe 'Pages', type: :request do
       expect(response.body.include?('ADMIN')).to eq(true)
     end
   end
+
+  describe 'Pagination' do
+    it 'body must match' do
+      get '/admin/products?page=-1'
+      res = response.body
+      get '/admin/products?page=1'
+      expect(response.body).to eq(res)
+    end
+
+    it 'body must match' do
+      get "/admin/products?page=#{(Product.count.to_f / ApplicationController::PER_PAGE).ceil}"
+      res = response.body
+      get "/admin/products?page=#{(Product.count.to_f / ApplicationController::PER_PAGE).ceil + 1}"
+      expect(response.body).to eq(res)
+    end
+  end
 end
