@@ -112,19 +112,15 @@ RSpec.describe ProductsController, type: :controller do
     count_deleted_products = Product.where(status: 'deleted').count
 
     it 'return status deleted for some product' do
-      product_ids = []
+      products = create_list(:product, 5)
 
-      5.times do
-        product_ids.push(FactoryBot.create(:product).id)
+      delete :destroy, params: { product_ids: products }, xhr: true
+
+      products.each do |p|
+        expect(Product.find(p.id).status).to eq('deleted')
       end
 
-      delete :destroy, params: { product_ids: }, xhr: true
-
-      product_ids.each do |id|
-        expect(Product.find(id).status).to eq('deleted')
-      end
-
-      expect(Product.where(status: 'deleted').count).to eq(count_deleted_products + product_ids.length)
+      expect(Product.where(status: 'deleted').count).to eq(count_deleted_products + products.length)
     end
 
     it 'return status deleted' do

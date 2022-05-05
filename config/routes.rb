@@ -2,11 +2,11 @@
 
 Rails.application.routes.draw do
   root 'static_pages#home'
-  get '/admin', to: 'static_pages#admin_home'
-  get '/admin/products/:id/restore', to: 'products#restore', as: 'product_restore'
-  delete '/admin/products', to: 'products#destroy', as: 'delete_product'
 
   scope '/admin' do
+    get '/', to: 'static_pages#admin_home'
+    get '/products/:id/restore', to: 'products#restore', as: 'product_restore'
+    delete '/products', to: 'products#destroy', as: 'delete_product'
     resources :products
   end
 
