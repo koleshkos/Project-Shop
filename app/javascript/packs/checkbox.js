@@ -1,13 +1,13 @@
-$(document).ready(function(){
-  $('#btn-check-box-set').on("click", function(){
+$(document).ready(() => {
+  $('#btn-check-box-set').on("click", () => {
     $('input').prop('checked', true);
   });
 
-  $('#btn-check-box-reset').on("click", function(){
+  $('#btn-check-box-reset').on("click", () => {
     $('input').prop('checked', false);
   });
 
-  function delete_request() {
+  const delete_request = () => {
     var product_ids = [];
     $('input:checkbox:checked').each(function(){
       product_ids.push($(this).val());
@@ -29,14 +29,14 @@ $(document).ready(function(){
 
   $('#btn-check-box-delete').on("click", delete_request);
   
-  $('input:checkbox').on("click", function(){
+  $('input:checkbox').on("click", () => {
     if ($('input:checkbox:checked').length>0) {
       $('div.card input').css('display', 'block');
       $(".btn-tool").css("display", "inline");
     };
   });
 
-  $('input:checkbox').change(function() {
+  $('input:checkbox').change(() => {
     if ($('input:checkbox:checked').length == 0) {
       $('div.card input').css('display', 'none');
       $(".btn-tool").css("display", "none");
