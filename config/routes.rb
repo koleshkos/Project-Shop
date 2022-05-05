@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   scope '/admin' do
     get '/', to: 'static_pages#admin_home'
-    get '/products/:id/restore', to: 'products#restore', as: 'product_restore'
+    patch '/products/:id/restore', to: 'products#restore', as: 'product_restore'
     delete '/products', to: 'products#destroy', as: 'delete_product'
     resources :products
   end

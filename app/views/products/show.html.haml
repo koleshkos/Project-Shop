@@ -31,4 +31,4 @@
       %button.btn.btn-danger{"data-target" => "#modal-window", "data-toggle" => "modal"} Destroy
       = render 'delete_product_modal'
     - else
-      = link_to 'Restore', product_restore_path(@product), class: 'btn btn-success'
+      = link_to 'Restore', product_restore_path(@product), class: 'btn btn-success', method: :patch
