@@ -6,8 +6,8 @@
 import Rails from "@rails/ujs"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
-import "packs/checkbox"
-import "packs/card"
+import "packs/hover_chechbox"
+import "packs/product_delete"
 require('jquery')
 
 Rails.start()
