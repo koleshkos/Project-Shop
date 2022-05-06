@@ -7,6 +7,7 @@ FactoryBot.define do
     code { Faker::Lorem.characters(number: 7) }
     price { Faker::Number.number(digits: 7) }
     description { Faker::Lorem.paragraph_by_chars(number: 1000) }
+    status { 'active' }
 
     trait :invalid_params do
       name { Faker::Name.initials(number: 1) }

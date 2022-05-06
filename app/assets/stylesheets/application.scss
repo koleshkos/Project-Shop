@@ -29,3 +29,22 @@ a:hover {
   height: auto; 
 
 }
+
+.status-deleted {
+  color: red;
+}
+
+.card-body {
+  height: 120px;
+}
+
+.card input {
+  float: right;
+  margin-top: 5px;
+  margin-right: 5px;
+  display: none;
+}
+
+.btn-tool {
+  display: none;
+}

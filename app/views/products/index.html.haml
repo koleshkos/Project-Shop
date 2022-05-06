@@ -1,13 +1,21 @@
 - if admin?
   = link_to 'New Product', new_product_path, class: 'btn btn-primary btn-lg mb-3'
 
+= will_paginate @collection, renderer: WillPaginate::ActionView::BootstrapLinkRenderer, list_classes: %w(pagination justify-content-center)
 
-.row
+- if admin?
+  %button.btn.btn-secondary.btn-check-box-set{id: "btn-check-box-set", class: "btn-tool"} Checked all
+  %button.btn.btn-primary.btn-check-box-reset{id: "btn-check-box-reset", class: "btn-tool"} Reset all
+  %button.btn.btn-danger{"data-target" => "#modal-window", "data-toggle" => "modal", class:"btn-tool"} Delete
+  = render 'delete_products_modal'
+
+.row{class: "mt-3"}
   - @products.each do |product|
     - if admin?
-      .col-sm-3.mb-5
+      .col-sm-3.mb-5        
         = link_to product_path(product) do
           .card.text-center{style: "width: 18rem;"}
+            = check_box_tag product.id, product.id
             %h5.card-header
               = product.name
             - if product.image?
@@ -16,7 +24,7 @@
               = image_tag('no-image.jpg', class: 'card-img-top')
             .card-body
               %p.card-text
-                = product.description
+                = product.description.truncate(120)
             %ul.list-group.list-group-flush
               %li.list-group-item
                 = number_to_currency(product.price)
@@ -24,6 +32,8 @@
                 = product.code
             .card-body
               = link_to 'Edit', edit_product_path(product), class: 'btn btn-secondary'
+              - if product.deleted?
+                %p.status-deleted Deleted
     - else
       - if product.active?
         .col-sm-3.mb-5
@@ -37,9 +47,12 @@
                 = image_tag('no-image.jpg', class: 'card-img-top')
               .card-body
                 %p.card-text
-                  = product.description
+                  = product.description.truncate(120)
               %ul.list-group.list-group-flush
                 %li.list-group-item
                   = number_to_currency(product.price)
                 %li.list-group-item
                   = product.code
+
+.mb-5
+  = will_paginate @collection, renderer: WillPaginate::ActionView::BootstrapLinkRenderer, list_classes: %w(pagination justify-content-center)
