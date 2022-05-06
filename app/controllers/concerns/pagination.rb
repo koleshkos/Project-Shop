@@ -5,11 +5,13 @@ module Pagination
     (products_count.to_f / ApplicationController::PER_PAGE).ceil
   end
 
-  def correct_page(page)
-    if page < 1
+  def correct_page(page, products_count)
+    max_page = max_page(products_count)
+
+    if page > max_page
+      max_page
+    elsif page < 1
       1
-    elsif page > max_page(Product.count)
-      max_page(Product.count)
     else
       page
     end

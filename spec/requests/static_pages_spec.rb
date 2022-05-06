@@ -30,7 +30,7 @@ RSpec.describe 'Pages', type: :request do
       expect(response.body).to eq(res)
     end
 
-    it 'returns last page if more tah max is requested' do
+    it 'returns last page if more than max is requested' do
       get "/admin/products?page=#{(Product.count.to_f / ApplicationController::PER_PAGE).ceil}"
       res = response.body
       get "/admin/products?page=#{(Product.count.to_f / ApplicationController::PER_PAGE).ceil + 1}"
