@@ -37,9 +37,12 @@ gem 'fog'
 gem 'image_processing', '~> 1.2'
 gem 'mini_magick'
 
-# for paginateion
+# for paginate
 gem 'will_paginate', '~> 3.3'
 gem 'will_paginate-bootstrap-style'
+
+# that generates fake data
+gem 'faker', git: 'https://github.com/faker-ruby/faker.git', branch: 'master'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
@@ -49,7 +52,6 @@ group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'dotenv-rails'
   gem 'factory_bot_rails', '~> 6.1.0'
-  gem 'faker', git: 'https://github.com/faker-ruby/faker.git', branch: 'master'
   gem 'rails-controller-testing'
   gem 'rspec-rails', '~> 5.0.0'
 end
