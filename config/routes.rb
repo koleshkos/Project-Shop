@@ -2,7 +2,7 @@
 
 Rails.application.routes.draw do
   root 'static_pages#home'
-  get 'products/:id/buy', to: 'products#buy', as: 'buy_product'
+  post 'products/add_to_cart/:id', to: 'products#add_to_cart', as: 'add_to_cart'
 
   scope '/admin' do
     get '/', to: 'static_pages#admin_home'

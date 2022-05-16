@@ -54,7 +54,7 @@
                 %li.list-group-item
                   = product.code
               .card-body
-                = link_to "Buy", buy_product_path(product), class: 'btn btn-success'
+                = link_to "Buy", add_to_cart_path(product), method: :post, class: 'btn btn-success'
 
 .mb-5
   = will_paginate @products, renderer: WillPaginate::ActionView::BootstrapLinkRenderer, list_classes: %w(pagination justify-content-center)

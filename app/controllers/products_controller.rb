@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ProductsController < ApplicationController
-  before_action :set_product!, only: %i[show edit update restore buy]
+  before_action :set_product!, only: %i[show edit update restore add_to_cart]
 
   def index
     @products = Product.paginate(page: correct_page(params[:page].to_i, Product.count), per_page: PER_PAGE)
@@ -54,7 +54,7 @@ class ProductsController < ApplicationController
     redirect_to products_path
   end
 
-  def buy
+  def add_to_cart
     flash[:success] = "Product #{@product.name} was successfully added to the cart"
     redirect_to products_path
   end
