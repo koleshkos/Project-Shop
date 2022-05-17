@@ -30,6 +30,7 @@
           %input{type:'number', value: "1", min: "1"}
         %td
           = link_to 'Remove', remove_from_cart_path(product), method: :delete, class: 'btn btn-danger'
+  = link_to 'Checkout', "#", class: 'btn btn-success'
 - else
   %h2
     The cart is empty
