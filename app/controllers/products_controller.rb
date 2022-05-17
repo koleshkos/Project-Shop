@@ -2,6 +2,7 @@
 
 class ProductsController < ApplicationController
   before_action :set_product!, only: %i[show edit update restore add_to_cart]
+  before_action :initialize_session
 
   def index
     @products = Product.paginate(page: correct_page(params[:page].to_i, Product.count), per_page: PER_PAGE)
@@ -55,8 +56,22 @@ class ProductsController < ApplicationController
   end
 
   def add_to_cart
+    id = params[:id].to_i
+
+    session[:cart] << id unless session[:cart].include?(id)
     flash[:success] = "Product #{@product.name} was successfully added to the cart"
     redirect_to products_path
+  end
+
+  def remove_from_cart
+    id = params[:id].to_i
+
+    session[:cart].delete(id)
+    redirect_to load_cart_path
+  end
+
+  def load_cart
+    @cart = Product.find(session[:cart])
   end
 
   private
@@ -67,5 +82,9 @@ class ProductsController < ApplicationController
 
   def product_params
     params.require(:product).permit(:name, :image, :code, :price, :description, :remove_image)
+  end
+
+  def initialize_session
+    session[:cart] ||= []
   end
 end
