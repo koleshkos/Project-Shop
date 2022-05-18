@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get 'orders/index'
+  get 'orders/show'
+  get 'orders/new'
+  get 'carts/show'
   root 'static_pages#home'
 
   scope '/admin' do
