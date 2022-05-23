@@ -19,6 +19,19 @@
             <a class="navbar-brand" href="/">MYSHOP</a>
             <li><%= link_to 'Products', products_path, class: 'nav-link px-2 text-white'%></li>
           </ul>
+
+          <div class="d-flex">
+            <%= link_to cart_path, class: 'btn btn-secondary position-relative' do %>
+              <%= image_tag('cart.png') %>
+              Cart
+              <% if count_cart_item > 0 %>
+                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                  <%= count_cart_item %>
+                <span class="visually-hidden">unread messages</span>
+                </span>
+              <% end %>
+            <% end %>              
+          </div>
         </div>
       </nav>
     </header>
