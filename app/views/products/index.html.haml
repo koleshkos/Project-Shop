@@ -53,6 +53,8 @@
                   = number_to_currency(product.price)
                 %li.list-group-item
                   = product.code
+              .card-body
+                = link_to "Add to cart", line_items_path(product_id: product.id), method: :post, class: 'btn btn-success'
 
 .mb-5
   = will_paginate @products, renderer: WillPaginate::ActionView::BootstrapLinkRenderer, list_classes: %w(pagination justify-content-center)

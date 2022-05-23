@@ -70,6 +70,8 @@ group :development do
   gem 'rubocop-performance', require: false
   gem 'rubocop-rails', '~> 2.13'
   gem 'rubocop-rspec', '~> 2.8'
+  # For increase your application's performance
+  gem 'bullet'
 end
 
 group :test do

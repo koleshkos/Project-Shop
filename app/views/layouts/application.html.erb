@@ -19,6 +19,13 @@
             <a class="navbar-brand" href="/">MYSHOP</a>
             <li><%= link_to 'Products', products_path, class: 'nav-link px-2 text-white'%></li>
           </ul>
+
+          <div class="d-flex">
+              <%= link_to cart_path, class: 'btn btn-secondary' do %>
+                <%= image_tag('cart.png') %>
+                Cart
+              <% end%>
+          </div>
         </div>
       </nav>
     </header>

@@ -3,8 +3,8 @@
 Rails.application.routes.draw do
   root 'static_pages#home'
 
-  get 'carts/:id', to: 'carts#show', as: 'cart'
-  delete 'carts/:id', to: 'carts#destroy'
+  get '/carts', to: 'carts#show', as: 'cart'
+  delete 'carts/:id', to: 'carts#destroy', as: 'delete_cart'
 
   post 'line_items/:id/add', to: 'line_items#add_quantity', as: 'line_item_add'
   post 'line_items/:id/reduce', to: 'line_items#reduce_quantity', as: 'line_item_reduce'
